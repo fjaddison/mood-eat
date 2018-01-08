@@ -1,0 +1,27 @@
+{
+  "name": "mood-eat",
+  "version": "1.0.0",
+  "description": "A restaurant app where the user can browse recommended places based on tongue-in-cheek mood/themes.i",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blankol/mood-eat.git"
+  },
+  "keywords": [
+    "Project",
+    "2"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blankol/mood-eat/issues"
+  },
+  "homepage": "https://github.com/blankol/mood-eat#readme",
+  "dependencies": {
+    "mongoose": "^4.13.9",
+    "reverse-string": "0.0.6"
+  }
+}
