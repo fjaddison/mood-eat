@@ -5,20 +5,21 @@ var db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
 
 var moodSchema = new mongoose.Schema ({
-    mood: String
+    name: String
 })
 
 var restaurantSchema = new mongoose.Schema ({
     name: String,
     address: {
     street: String, 
-        zipcode: Number,
+    zipcode: Number
+    },
     yelpUrl: String,
-    comments: [menuItemsSchema],
+    mood: [moodSchema]
 })
 
 
 mongoose.model('Mood', moodSchema)
-mongoose.model('Restaurant', restaurantsSchema)
+mongoose.model('Restaurant', restaurantSchema)
 
 module.exports = mongoose
