@@ -1,0 +1,42 @@
+[
+
+{
+        "After Work": [
+        {
+            "name": "Ton Ton Chicken",  
+            "address": {
+            "street": "1080 Vermont Ave NW, Washington DC",  
+            "zipcode":20005
+        }
+    ],
+
+    "Stressed": [
+        {
+            "name": "Federalist Pig", 
+            "address": {
+            "street": "1654 Columbia Rd NW Washington, DC",  
+            "zipcode":20009
+        }
+    ],
+
+    "Munchies": [
+        {
+            "name": "Smoke & Barrel", 
+            "address": {
+            "street": "2471 18 St NW, Washington, DC",  
+            "zipcode":20009
+        }
+    ],
+
+    "Celebrate!": [
+        {
+            "name": "Ton Ton Chicken",  
+            "address": {
+            "street": "1080 Vermont Ave NW, Washington DC",  
+            "zipcode":20005
+        }
+    ]
+
+}
+
+]
