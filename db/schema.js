@@ -15,11 +15,20 @@ var restaurantSchema = new mongoose.Schema ({
     zipcode: Number
     },
     yelpUrl: String,
-    mood: [moodSchema]
+    //mood: [moodSchema]
+    mood: String
 })
 
+var theMoodsSchema = new mongoose.Schema({
+    mood: [moodSchema],
+    //a list of restaurant IDs that match this mood
+    restaurants: [String]
+})
 
-mongoose.model('Mood', moodSchema)
-mongoose.model('Restaurant', restaurantSchema)
+theHardCodedMoods = ['happy','sad']
 
-module.exports = mongoose
+module.exports = { Mood: mongoose.model('Mood', moodSchema),
+                   Restaurant: mongoose.model('Restaurant', restaurantSchema),
+                   MoodList: mongoose.model('MoodList', theMoodsSchema),
+                   HardCodedMoodList: theHardCodedMoods}
+

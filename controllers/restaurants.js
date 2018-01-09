@@ -1,11 +1,12 @@
-// const express       = require('express')
-const Restaurants        = require('../db/schema')
-
+// const express  = require('express')
+const Database = require('../db/schema')
+const Restaurants = Database.Restaurant
+const Moods = Database.MoodList
 
 // use mongoose to retrieve or display restaurants from database
 
 function getRestaurants (request, respond){
-  // return list of all restaurants
+// return list of all restaurants
   Restaurants.find({})
       .then((restaurantsData) => {
           respond.render('index',{
@@ -24,14 +25,14 @@ function showRestaurants (request, respond) {
     respond.render('restaurants-show', { restaurants: restaurants})
   }
 
-
-
-
 function addRestaurants (request, respond) {
-  // add this recipe to the db
+  // add this restaurants to the db
   Restaurants.create(request.body.restaurant)
-    .then( restaurants => {
-      // if the recipe exists then go to the recipe page
+    .then( restaurant => {
+        // 'Moods' push code by Gwen Latasa:
+        Moods.findOneAndUpdate({'name':request.body.restaurant.mood},
+                               { $push: {restaurants: restaurant._id}})
+      // if the restaurant exists then go to the restaurant page
       respond.redirect(`/${restaurants.name}`)
     })
 }
