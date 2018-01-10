@@ -73,7 +73,7 @@ router.get('/', (req, res) => {
    Restaurant.find({})
    .then((restaurant) => {
        // show all
-       res.render('resources-index', {
+       res.render('restaurants-index', {
            restaurants: restaurant
        })
    })
