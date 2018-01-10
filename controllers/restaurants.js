@@ -1,7 +1,7 @@
 // const express  = require('express')
 const Database = require('../db/schema')
 const Restaurants = Database.Restaurant
-const Moods = Database.MoodList
+// const Moods = Database.MoodList
 
 // use mongoose to retrieve or display restaurants from database
 
@@ -30,8 +30,8 @@ function addRestaurants (request, respond) {
   Restaurants.create(request.body.restaurant)
     .then( restaurant => {
         // 'Moods' push code by Gwen Latasa:
-        Moods.findOneAndUpdate({'name':request.body.restaurant.mood},
-                               { $push: {restaurants: restaurant._id}})
+        // Moods.findOneAndUpdate({'name':request.body.restaurant.mood},
+        //                        { $push: {restaurants: restaurant._id}})
       // if the restaurant exists then go to the restaurant page
       respond.redirect(`/${restaurants.name}`)
     })

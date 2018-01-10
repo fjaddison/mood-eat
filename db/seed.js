@@ -1,6 +1,6 @@
 var mongoose = require('./schema.js');
 var Restaurant = mongoose.model('Restaurant')
-var menuItemsSchema = mongoose.model('Mood')
+// var menuItemsSchema = mongoose.model('Mood')
 
 var seedData = require('./seeds.json')
 
@@ -12,12 +12,11 @@ Restaurant.remove({})
     })
     .then(() => {
         process.exit()
-    })
 
-Mood.remove({})
-    .then(() => {
-        return mood.collection.insert(seedData)
-    })
-    .then(() => {
-        process.exit()
-    })
+// Mood.remove({})
+//     .then(() => {
+//         return mood.collection.insert(seedData)
+//     })
+//     .then(() => {
+//         process.exit()
+//     })
