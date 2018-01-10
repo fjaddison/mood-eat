@@ -1,20 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mood/Eats</title>
-</head>
-<body>
-    <h1>mood eats</h1>
-    <div class="dropdown">
-  <button class="dropbtn">How do you feel?</button>
-  <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
+{{#if recipe}}
+<div class="restaurants">
+  <h3>{{restaurants.name}}</h3>
+  <h4>Location</h4>
+  <p> {{restaurants.address}}</p>
+  <h4>Website:</h4>
+  <p>{{restaurants.url}}</p>
 </div>
-</body>
-</html>
+
+<div class="restaurants-input">
+  <h2>Update Restaurant Info.</h2>
+  <form action="/{{restaurants.name}}?_method=put" method="post">
+      <input type="text" name="restaurants[name]" value="{{restaurants.name}}"><br>
+      <input type="text" name="restaurants[directions]" value="{{restaurants.directions}}"><br>
+      <textarea cols="40" rows="5" name="restaurants[url]" >
+        {{restaurants.url}}
+      </textarea>
+      <input type="submit" value="update">
+  </form>
+
+  <h3>Delete Restaurant</h3>
+  <form action="/{{restaurants.name}}?_method=delete" method="post">
+    <input type="submit" value="delete">
+  </form>
+</div>
+
+{{else}}
+<h2>bummer! nothing can display!</h2>
+{{/if}}
