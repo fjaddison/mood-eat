@@ -9,6 +9,7 @@ const app = express()
  
 app.set('port', process.env.PORT || 4000)
 app.set('view engine', 'hbs')
+app.use('/assets', express.static('public'))
 
 app.use(methodOverride('_method'))
 app.use(parser.json()) //handles json post requests
@@ -22,6 +23,8 @@ app.use(parser.urlencoded({ extended: true })) // handles form submissions
 app.get('/', (req, res) => {
     res.render('index')
 })
+
+
 
 app.listen(app.get('port'), () => {
   console.log('Listening on 4000')
