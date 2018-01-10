@@ -46,19 +46,19 @@ function updateRestaurants (request, respond) {
 }
 
 
-function removeRestaurants (request, respond) {
-  let name = request.params.name
-  Restaurants.findOneAndRemove({name: name})
-    .then( () => {
-      respond.redirect(`/`)
-    })
-}
+// function removeRestaurants (request, respond) {
+//   let name = request.params.name
+//   Restaurants.findOneAndRemove({name: name})
+//     .then( () => {
+//       respond.redirect(`/`)
+//     })
+// }
 
 module.exports = {
   getRestaurants: getRestaurants,
   showRestaurants : showRestaurants,
   addRestaurants : addRestaurants,
   updateRestaurants : updateRestaurants,
-  removeRestaurants : removeRestaurants
+// removeRestaurants : removeRestaurants
 
 }
