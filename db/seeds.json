@@ -4,14 +4,10 @@
         "address": {
         "street": "1080 Vermont Ave NW, Washington DC",  
         "zipcode":20005
-    },
+        },
 
-        "yelpUrl": "https://www.yelp.com/biz/tonton-chicken-washington",
-        "mood": [
-            {
-                "name": "Comfort"
-            }
-        ]
+        "yelpUrl": "https://www.yelp.com/biz/tonton-chicken-washington"
+      
     },
 
     {
@@ -19,14 +15,10 @@
         "address": {
         "street": "1654 Columbia Rd NW Washington, DC",  
         "zipcode":20009
-    }, 
+        }, 
 
-        "yelpUrl": "https://www.yelp.com/biz/federalist-pig-washington",
-        "mood": [
-            {
-                "name":"Drunk Eats"
-            }
-        ]
+        "yelpUrl": "https://www.yelp.com/biz/federalist-pig-washington"
+
     },
 
     {
@@ -34,14 +26,9 @@
         "address": {
         "street": "2471 18 St NW, Washington, DC",  
         "zipcode":20009
-    },
+        },
 
-        "yelpUrl": "https://www.yelp.com/biz/smoke-and-barrel-washington",
-         "mood": [
-             {
-                  "name": "Group Night"
-             }
-    ]
+        "yelpUrl": "https://www.yelp.com/biz/smoke-and-barrel-washington"
 
     }
         

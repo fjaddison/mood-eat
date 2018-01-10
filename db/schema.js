@@ -1,22 +1,22 @@
-var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/4000', { useMongoClient: true } )
+var mongoose = require('./connection')
+// mongoose.connect('mongodb://localhost/4000', { useMongoClient: true } )
 
-var db = mongoose.connection
-db.on('error', console.error.bind(console, 'connection error:'))
+// var db = mongoose.connection
+// db.on('error', console.error.bind(console, 'connection error:'))
 
 // var moodSchema = new mongoose.Schema ({
 //     name: String
 // })
 
 var restaurantSchema = new mongoose.Schema ({
-    name: String,
-    address: {
-    street: String, 
-    zipcode: Number
-    },
-    url: String,
+    name: String
+    // address: {
+    // street: String, 
+    // zipcode: Number
+    // },
+    // url: String
     // mood: [moodSchema]
-    // mood: String
+//    mood: String
 })
 
 // var theMoodsSchema = new mongoose.Schema({
@@ -27,9 +27,12 @@ var restaurantSchema = new mongoose.Schema ({
 
 // theHardCodedMoods = ['happy','sad']
 
-module.exports = { // Mood: mongoose.model('Mood', moodSchema),
-                   Restaurant: mongoose.model('Restaurant', restaurantSchema)
-                //    MoodList: mongoose.model('MoodList', theMoodsSchema),
-                //    HardCodedMoodList: theHardCodedMoods 
-                 }
+const Restaurant = mongoose.model('Restaurant', restaurantSchema)
+
+module.exports = Restaurant
+// { // Mood: mongoose.model('Mood', moodSchema),
+//                    Restaurant: mongoose.model('Restaurant', restaurantSchema)
+//                 //    MoodList: mongoose.model('MoodList', theMoodsSchema),
+//                 //    HardCodedMoodList: theHardCodedMoods 
+//                  }
 

@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+
 body {
-    text-align: center;              
+    text-align: center;   
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;           
 }
 
 /* CSS font color change source by Rasi Zakaria https://codepen.io/raaasin/pen/quvHr */
@@ -12,32 +16,32 @@ body {
   @-webkit-keyframes colorchange {
     0% {
       
-      color: blue;
+      color: #ff0000;
     }
     
     10% {
       
-      color: #8e44ad;
+      color: #003A1A;
     }
     
     20% {
       
-      color: #1abc9c;
+      color: #00DC7B;
     }
     
     30% {
       
-      color: #d35400;
+      color: #00B4E9;
     }
     
     40% {
       
-      color: blue;
+      color: #FF0505;
     }
     
     50% {
       
-      color: #34495e;
+      color: #FFA761;
     }
     
     60% {
@@ -61,7 +65,7 @@ body {
     
     100% {
       
-      color: pink;
+      color: #FF69B4;
     }
   }
 

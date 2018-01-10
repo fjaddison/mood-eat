@@ -21,9 +21,10 @@ function getRestaurants (request, respond){
 function showRestaurants (request, respond) {
   let name = request.params.name
   Restaurants.findOne({name: name})
-  .then (restaurants) 
+  .then ((restaurants) => {
     respond.render('restaurants-show', { restaurants: restaurants})
-  }
+  })
+}
 
 function addRestaurants (request, respond) {
   // add this restaurants to the db

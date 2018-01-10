@@ -1,16 +1,28 @@
 const express = require('express')
-const hbs = require('hbs')
+const hbs = require('express-handlebars')
 const parser = require('body-parser')
-const restaurants = require('./controllers/restaurants')
-
+// const Restaurants = require('./controllers/restaurants')
+const Restaurants = require('./db/schema')
 //this library allows us to do push and put requests
 const methodOverride = require('method-override')
+const path = require('path')
 
 const app = express()
  
 app.set('port', process.env.PORT || 4000)
-app.set('view engine', 'hbs')
+
 app.use('/assets', express.static('public'))
+
+app.set('view engine', 'hbs')
+app.engine('.hbs', hbs({
+  extname: '.hbs',
+  partialsDir: 'views/',
+  layoutsDir: 'views/',
+  defaultLayout: 'layout'
+}))
+
+app.use(express.static(path.join(__dirname, '/public')))
+
 
 app.use(methodOverride('_method'))
 app.use(parser.json()) //handles json post requests
@@ -21,19 +33,19 @@ app.use(parser.urlencoded({ extended: true })) // handles form submissions
 
 
 
-app.get('/', (req, res) => {
-    res.render('index')
-})
+// app.get('/', (req, res) => {
+//     res.render('index')
+// })
 
 // use mongoose to retrieve or display restaurants from database
 
 app.get('/', (request, respond) => {
 // return list of all restaurants
-  console.log('get' + Restaurants.find({}))
+  console.log('get' + Restaurants.find({}).name)
   Restaurants.find({})
-      .then((restaurantsData) => {
+      .then((restaurants) => {
           respond.render('index',{
-              restaurants: restaurantsData
+              restaurants: restaurants
           })
       })
       .catch((err) => {
@@ -42,9 +54,13 @@ app.get('/', (request, respond) => {
 })
 
 app.get('/:name', (request, respond) => {
+  console.log('I;m here')
   let name = request.params.name
+  console.log(name)
+  console.log('second test' + Restaurants.address)
   Restaurants.findOne({name: name})
   .then(restaurants => {
+    console.log(restaurants)
     respond.render('restaurants-show', { restaurants: restaurants})
   })
 })
