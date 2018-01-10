@@ -1,8 +1,8 @@
-var Restaurant = require('./schema');
+const mongoose = require('../controllers/restaurants')
+const Restaurant = require('./schema');
 // var Restaurant = new mongoose.model('Restaurant')
 // var menuItemsSchema = mongoose.model('Mood')
-
-var seedData = require('./seeds1.json')
+const seedData = require('./seeds.json')
 
 // remove clears out restaurant collection
 Restaurant.remove({})
@@ -13,6 +13,7 @@ Restaurant.remove({})
     .then(() => {
         process.exit()
     })
+
 // Mood.remove({})
 //     .then(() => {
 //         return mood.collection.insert(seedData)

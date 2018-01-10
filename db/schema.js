@@ -9,14 +9,14 @@ var mongoose = require('./connection')
 // })
 
 var restaurantSchema = new mongoose.Schema ({
-    name: String
-    // address: {
-    // street: String, 
-    // zipcode: Number
-    // },
-    // url: String
-    // mood: [moodSchema]
-//    mood: String
+    name: String,
+    address: {
+    street: String, 
+    zipcode: Number
+    },
+    url: String,
+    mood: [],
+    mood: String
 })
 
 // var theMoodsSchema = new mongoose.Schema({

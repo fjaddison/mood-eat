@@ -1,15 +1,15 @@
-{{#each restaurants as |restaurants index|}}
+{{#each restaurants as |restaurant index|}}
 <h3>
-  <a href="/{{restaurants.name}}">{{restaurants.name}} -- {{restaurants.location}}</a>
+  <a href="/{{restaurant.name}}">{{restaurant.name}} -- {{restaurant.location}}</a>
 </h3>
 {{/each}}
 
 <div class="restaurants-input">
     <h3>Add Restaurant</h3>
-      <form name= 'restaurants' action="/{{restaurants.name}}" method="post">
-        <input type="text" name="restaurants[name]" value="name of restaurant"><br>
+      <form name='restaurants' action="/" method="post">
+        <input type="text" name="restaurant[name]" value="name of restaurant"><br>
         <input type="text" name="restaurant[location]" value="restaurant location"><br>
-        <textarea cols="40" rows="15" name="restaurants[url]">
+        <textarea cols="40" rows="15" name="restaurant[url]">
           Website
         </textarea>
      <br>

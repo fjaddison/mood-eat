@@ -6,6 +6,7 @@ const Restaurants = require('./db/schema')
 //this library allows us to do push and put requests
 const methodOverride = require('method-override')
 const path = require('path')
+const controllers = require('./controllers/restaurants')
 
 const app = express()
  
@@ -16,12 +17,12 @@ app.use('/assets', express.static('public'))
 app.set('view engine', 'hbs')
 app.engine('.hbs', hbs({
   extname: '.hbs',
-  partialsDir: 'views/',
-  layoutsDir: 'views/',
+  partialsDir: './views/',
+  layoutsDir: './views/',
   defaultLayout: 'layout'
 }))
 
-app.use(express.static(path.join(__dirname, '/public')))
+// app.use(express.static(path.join(__dirname, '/public')))
 
 
 app.use(methodOverride('_method'))
@@ -39,54 +40,60 @@ app.use(parser.urlencoded({ extended: true })) // handles form submissions
 
 // use mongoose to retrieve or display restaurants from database
 
-app.get('/', (request, respond) => {
-// return list of all restaurants
-  console.log('get' + Restaurants.find({}).name)
-  Restaurants.find({})
-      .then((restaurants) => {
-          respond.render('index',{
-              restaurants: restaurants
-          })
-      })
-      .catch((err) => {
-          console.log(err)
-      })
+// app.get('/', (request, respond) => {
+// // return list of all restaurants
+//   console.log('get' + Restaurants.find({}).name)
+//   Restaurants.find({})
+//       .then((restaurants) => {
+//           respond.render('index',{
+//               restaurants: restaurants
+//           })
+//       })
+//       .catch((err) => {
+//           console.log(err)
+//       })
+// })
+
+app.get('/', (request, response) => {
+    response.render('restaurants-index')
 })
 
-app.get('/:name', (request, respond) => {
-  console.log('I;m here')
-  let name = request.params.name
-  console.log(name)
-  console.log('second test' + Restaurants.address)
-  Restaurants.findOne({name: name})
-  .then(restaurants => {
-    console.log(restaurants)
-    respond.render('restaurants-show', { restaurants: restaurants})
-  })
-})
+app.use('/', controllers)
+
+// app.get('/:name', (request, respond) => {
+//   console.log('I;m here')
+//   let name = request.params.name
+//   console.log(name)
+//   console.log('second test' + Restaurants.address)
+//   Restaurants.findOne({name: name})
+//   .then(restaurants => {
+//     console.log(restaurants)
+//     respond.render('restaurants-show', { restaurants: restaurants})
+//   })
+// })
 
 //GL
 // for when the browser wants to send info back
 // to the server
-app.post( '/', (request, respond) => {
-  console.log('in post')
-  Restaurants.create(request.body.recipe)
-    .then( restaurants => {
-      // if the restaurants exists then go to the recipe page
-      respond.redirect(`/${restaurants.name}`)
-    })
-})
+// app.post( '/', (request, respond) => {
+//   console.log('in post')
+//   Restaurants.create(request.body.recipe)
+//     .then( restaurants => {
+//       // if the restaurants exists then go to the recipe page
+//       respond.redirect(`/${restaurants.name}`)
+//     })
+// })
 
 
-//GL
-//update restaurants request
-app.put('/:name', (request, respond) => {
-  let name = request.params.name
-  Restaurants.findOneAndUpdate({name : name})
-    .then(restaurants => {
-      res.redirect(`/${restaurants.name}`)
-    })
-})
+// //GL
+// //update restaurants request
+// app.put('/:name', (request, respond) => {
+//   let name = request.params.name
+//   Restaurants.findOneAndUpdate({name : name})
+//     .then(restaurants => {
+//       res.redirect(`/${restaurants.name}`)
+//     })
+// })
 
 
 
