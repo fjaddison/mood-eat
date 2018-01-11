@@ -1,25 +1,27 @@
-{{#if restaurants}}
+{{#if restaurant}}
+
+
 <div class="restaurants">
-  <h3>{{restaurants.name}}</h3>
-  <h4>Location</h4>
-  <p> {{restaurants.address}}</p>
+  <h3>{{restaurant.name}}</h3>
+  <h4>Location:</h4>
+  <p> {{restaurant.address.street}} {{restaurant.address.zipcode}}</p>
   <h4>Website:</h4>
-  <p>{{restaurants.url}}</p>
+  <p>{{restaurant.yelpUrl}}</p>
 </div>
 
 <div class="restaurants-input">
   <h2>Update Restaurant Info.</h2>
-  <form action="/{{restaurants.name}}?_method=put" method="post">
-      <input type="text" name="restaurants[name]" value="{{restaurants.name}}"><br>
-      <input type="text" name="restaurants[directions]" value="{{restaurants.directions}}"><br>
-      <textarea cols="40" rows="5" name="restaurants[url]" >
-        {{restaurants.url}}
+  <form action="/{{restaurant.mood}}?_method=put" method="post">
+      <input type="text" name="restaurant[name]" placeholder="{{restaurant.name}}"><br>
+      <input type="text" name="restaurant[location]" value="{{restaurant.location}}"><br>
+      <textarea cols="40" rows="5" name="restaurant[url]" >
+        {{restaurant.url}}
       </textarea>
       <input type="submit" value="update">
   </form>
 
   <h3>Delete Restaurant</h3>
-  <form action="/{{restaurants.name}}?_method=delete" method="post">
+  <form action="/{{restaurant.mood}}?_method=delete" method="post">
     <input type="submit" value="delete">
   </form>
 </div>

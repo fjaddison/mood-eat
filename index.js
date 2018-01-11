@@ -22,7 +22,7 @@ app.engine('.hbs', hbs({
   defaultLayout: 'layout'
 }))
 
-// app.use(express.static(path.join(__dirname, '/public')))
+//app.use(express.static(path.join(__dirname, '/public')))
 
 
 app.use(methodOverride('_method'))
@@ -58,7 +58,7 @@ app.get('/', (request, response) => {
     response.render('restaurants-index')
 })
 
-app.use('/', controllers)
+app.use('/restaurants', controllers)
 
 // app.get('/:name', (request, respond) => {
 //   console.log('I;m here')

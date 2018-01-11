@@ -6,7 +6,8 @@
         "zipcode":20005
         },
 
-        "yelpUrl": "https://www.yelp.com/biz/tonton-chicken-washington"
+        "yelpUrl": "https://www.yelp.com/biz/tonton-chicken-washington",
+        "mood": "afterwork"
       
     },
 
@@ -17,7 +18,8 @@
         "zipcode":20009
         }, 
 
-        "yelpUrl": "https://www.yelp.com/biz/federalist-pig-washington"
+        "yelpUrl": "https://www.yelp.com/biz/federalist-pig-washington",
+        "mood": "celebrating"
 
     },
 
@@ -28,7 +30,8 @@
         "zipcode":20009
         },
 
-        "yelpUrl": "https://www.yelp.com/biz/smoke-and-barrel-washington"
+        "yelpUrl": "https://www.yelp.com/biz/smoke-and-barrel-washington",
+        "mood": "relax"
 
     }
         

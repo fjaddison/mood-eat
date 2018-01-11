@@ -15,7 +15,6 @@ var restaurantSchema = new mongoose.Schema ({
     zipcode: Number
     },
     url: String,
-    mood: [],
     mood: String
 })
 

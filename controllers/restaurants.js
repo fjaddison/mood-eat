@@ -68,25 +68,34 @@ const Restaurant = require('../db/schema')
 
 const router = express.Router()
 
-// get main page
 router.get('/', (req, res) => {
-   Restaurant.find({})
-   .then((restaurant) => {
-       // show all
-       res.render('restaurants-index', {
-           restaurants: restaurant
-       })
-   })
-   .catch((err) => {
-       console.log(err)
-   })
+  Restaurant.find({})
+  .then((restaurant) => {
+    console.log(restaurant)
+    res.render('restaurants-index', {
+      restaurants: restaurant
+    })
+  })
 })
+
+// get main page
+// router.get('/', (req, res) => {
+//    Restaurant.find({})
+//    .then((restaurant) => {
+//        // show all
+//        res.render('restaurants-index', {
+//            restaurants: restaurant
+//        })
+//    })
+//    .catch((err) => {
+//        console.log(err)
+//    })
+// })
  
 
  // get one by name:
- router.get('/:name', (req, res) => {
-     let name = req.params.name
-     Restaurant.findOne({name: req.params.name})
+ router.get('/:mood', (req, res) => {
+     Restaurant.findOne({mood: req.params.mood})
      .then((restaurant) => {
          res.render('restaurants-show', {
              restaurant: restaurant
@@ -98,10 +107,10 @@ router.get('/', (req, res) => {
    })
    
    // update restaurants:
-   router.put('/:name', (req, res) => {
-       Restaurant.findOneAndUpdate({name: req.params.name}, req.body.restaurant, {new: true})
+   router.put('/:mood', (req, res) => {
+       Restaurant.findOneAndUpdate({mood: req.params.mood}, req.body.restaurant, {new: true})
        .then(restaurant => {
-           res.redirect(`/${restaurant.name}`)
+           res.redirect(`/${restaurant.mood}`)
        })
        .catch((err) => {
            console.log(err)
@@ -112,7 +121,7 @@ router.get('/', (req, res) => {
    router.post('/', (req, res) => {
        Restaurant.create(req.body.resource)
        .then((restaurant) => {
-           res.redirect(`/ ${restaurant.name}`)
+           res.redirect(`/ ${restaurant.mood}`)
        })
        .catch((err) => {
            console.log(err)
@@ -122,8 +131,8 @@ router.get('/', (req, res) => {
      
  
    // delete res ** 
-   router.delete('/:name', (req, res) => {
-       Restaurant.findOneAndRemove({name: req.params.name})
+   router.delete('/restaurants/:mood', (req, res) => {
+       Restaurant.findOneAndRemove({mood: req.params.mood})
        .then(() => {
            res.redirect('/')
        })
