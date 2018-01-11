@@ -120,7 +120,7 @@ router.get('/', (req, res) => {
    // Post new restaurants:
    router.post('/', (req, res) => {
        Restaurant.create(req.body.restaurant)
-       .then((restaurant) => {
+       .then(restaurant => {
            res.redirect(`/restaurants/${restaurant.mood}`)
        })
        .catch((err) => {

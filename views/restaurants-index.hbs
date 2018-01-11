@@ -9,13 +9,11 @@
 
 <div class="restaurants-input">
     <h3>Add Restaurant</h3>
-      <form name='restaurants' action="/" method="post">
-        <input type="text" name="restaurant[name]" value="name of restaurant"><br>
-        <input type="text" name="restaurant[location]" value="restaurant location"><br>
-        <textarea cols="40" rows="15" name="restaurant[url]">
-          Website
-        </textarea>
-     <br>
-    <input type="submit" name="" value="add restaurant">
-  </form>
+      <form name='restaurants' action="/restaurants" method="post">
+        <input type="text" name="restaurant[name]" placeholder="name of restaurant"><br>
+        <input type="text" name="restaurant[location]" placeholder="restaurant location"><br>
+        <input type="text" name="restaurant[mood]" placeholder="restaurant mood"><br>
+        <input type="text" name="restaurant[url]" placeholder="website"><br>
+        <input type="submit" name="" value="add restaurant">
+      </form>
 </div>
