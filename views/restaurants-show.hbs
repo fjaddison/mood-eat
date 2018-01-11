@@ -11,7 +11,7 @@
 
 <div class="restaurants-input">
   <h2>Update Restaurant Info.</h2>
-  <form action="/{{restaurant.mood}}?_method=put" method="post">
+  <form action="/restaurants/{{restaurant.mood}}?_method=put" method="post">
       <input type="text" name="restaurant[name]" placeholder="{{restaurant.name}}"><br>
       <input type="text" name="restaurant[location]" value="{{restaurant.location}}"><br>
       <textarea cols="40" rows="5" name="restaurant[url]" >
@@ -21,7 +21,7 @@
   </form>
 
   <h3>Delete Restaurant</h3>
-  <form action="/{{restaurant.mood}}?_method=delete" method="post">
+  <form action="/restaurants/{{restaurant.mood}}?_method=delete" method="post">
     <input type="submit" value="delete">
   </form>
 </div>

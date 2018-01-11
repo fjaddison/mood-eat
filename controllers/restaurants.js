@@ -110,7 +110,7 @@ router.get('/', (req, res) => {
    router.put('/:mood', (req, res) => {
        Restaurant.findOneAndUpdate({mood: req.params.mood}, req.body.restaurant, {new: true})
        .then(restaurant => {
-           res.redirect(`/${restaurant.mood}`)
+           res.redirect(`/restaurants/${restaurant.mood}`)
        })
        .catch((err) => {
            console.log(err)
@@ -119,9 +119,9 @@ router.get('/', (req, res) => {
 
    // Post new restaurants:
    router.post('/', (req, res) => {
-       Restaurant.create(req.body.resource)
+       Restaurant.create(req.body.restaurant)
        .then((restaurant) => {
-           res.redirect(`/ ${restaurant.mood}`)
+           res.redirect(`/restaurants/${restaurant.mood}`)
        })
        .catch((err) => {
            console.log(err)
@@ -131,10 +131,10 @@ router.get('/', (req, res) => {
      
  
    // delete res ** 
-   router.delete('/restaurants/:mood', (req, res) => {
+   router.delete('/:mood', (req, res) => {
        Restaurant.findOneAndRemove({mood: req.params.mood})
        .then(() => {
-           res.redirect('/')
+           res.redirect('/restaurants')
        })
    })
    
